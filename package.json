@@ -1,0 +1,39 @@
+{
+  "name": "vefforritun2017-stortverkefni2",
+  "version": "1.0.0",
+  "description": "Vefforritun Hópv. 2 HI",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint script.js",
+    "stylelint": "stylelint *.scss scss/*.scss --syntax scss",
+    "lint": "npm-run-all --parallel eslint stylelint",
+    "babel": "babel script.js --watch --out-file compiled-js.js --source-maps",
+    "browser-sync": "browser-sync start --server --files index.html styles.css script-compiled.js",
+    "sass": "node-sass --source-map-embed --watch styles.scss styles.css",
+    "dev": "npm-run-all --parallel sass babel browser-sync"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goh12/vefforritun2017-stortverkefni2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goh12/vefforritun2017-stortverkefni2/issues"
+  },
+  "homepage": "https://github.com/goh12/vefforritun2017-stortverkefni2#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.18.13",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "node-sass": "^4.6.1",
+    "npm-run-all": "^4.1.2",
+    "stylelint": "^8.2.0",
+    "stylelint-config-primer": "^2.2.1"
+  }
+}
