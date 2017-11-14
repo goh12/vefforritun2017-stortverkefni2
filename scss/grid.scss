@@ -1,0 +1,135 @@
+@import "config.scss";
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 $gutter/2;
+  flex-direction: row;
+}
+
+// mixin sem reiknar nákvæmar prósentur útfrá dálkum
+@mixin columns($col: 1) {
+  // margföldum með "1%" til að breyta gildi í prósentu gildi
+  width: ($col / 12 * 100) * 1%;
+}
+
+@mixin offsetl($col: 1) {
+  padding-left: ($col / 12 * 100) * 1%;
+}
+
+@mixin offsetr($col: 1) {
+  padding-right: ($col / 12 * 100) * 1%;
+}
+
+.col {
+  padding: 0 $gutter/2;
+  margin: 0 auto;
+
+  &-12 {
+    @include columns(12);
+  }
+
+  &-8 {
+    @include columns(8);
+  }
+
+  &-6 {
+    @include columns(6);
+  }
+
+  &-4 {
+    @include columns(4);
+  }
+
+  &-3 {
+    @include columns(3);
+  }
+
+  &-2 {
+    @include columns(2);
+  }
+
+  &-1 {
+    @include columns(1);
+  }
+
+  &-sm {
+    @media (max-width: 600px) {
+      &-12 {
+        @include columns(12);
+      }
+
+      &-8 {
+        @include columns(8);
+      }
+
+      &-6 {
+        @include columns(6);
+      }
+
+      &-4 {
+        @include columns(4);
+      }
+    }
+
+  }
+
+  &-ssm {
+    @media (max-width: 400px) {
+      &-12 {
+        @include columns(12);
+      }
+    }
+  }
+
+}
+
+.offset {
+  &-l1 {
+    @include offsetl(1);
+  }
+
+  &-l2 {
+    @include offsetl(2);
+  }
+
+  &-l3 {
+    @include offsetl(3);
+  }
+
+  &-l4 {
+    @include offsetl(4);
+  }
+
+  &-l6 {
+    @include offsetl(6);
+  }
+
+  &-r1 {
+    @include offsetr(1);
+  }
+
+  &-r2 {
+    @include offsetr(2);
+  }
+
+  &-r3 {
+    @include offsetr(3);
+  }
+
+  &-r4 {
+    @include offsetr(4);
+  }
+
+  &-r6 {
+    @include offsetr(6);
+  }
+
+  &-sm {
+    @media (max-width: 600px) {
+      &-r0 {
+        @include offsetr(0);
+      }
+    }
+  }
+}

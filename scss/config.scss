@@ -1,0 +1,8 @@
+// Skrá til að halda utan um alllar scss breytur
+$max-width: 1200px;
+$gutter: 20px;
+$heading-font: "Roboto Slab";
+@mixin formoutline() {
+  outline-width: 3px;
+  outline-color: #999;
+}
