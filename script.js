@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var moviedisplayer = (function() {
     var videoscontainer;
-      
+
     /*
         Framkvæmir AJAX fyrirspurn og kallar á fall sem
         sýnir niðurstöður
@@ -38,7 +38,6 @@ var moviedisplayer = (function() {
         console.log(results.categories);
         results.categories.forEach(function(data) {
             const container = buildContainer(data.title);
-            videoscontainer.appendChild(container);
             console.log(data.title);
             addVideosToCategory(container, data.videos, results.videos);
         });
@@ -50,14 +49,18 @@ var moviedisplayer = (function() {
     function buildContainer(title) {
         const container = document.createElement('div');
         const heading = document.createElement('h2');
+        const videolistitemcontainer = document.createElement('div');
 
         container.className = 'category';
         heading.className = 'category__heading';
+        videolistitemcontainer.className = 'category__videolist';
         heading.textContent = title;
 
         container.appendChild(heading);
+        container.appendChild(videolistitemcontainer);
+        videoscontainer.appendChild(container);
 
-        return container;
+        return videolistitemcontainer;
     }
 
     /*
@@ -114,7 +117,7 @@ var moviedisplayer = (function() {
     function getLength(length) {
         const min = Math.floor(length/60);
         const secs = length - (60 * min);
-        const secsstring = secs < 10 ? '0' + secs : "" + secs; 
+        const secsstring = secs < 10 ? '0' + secs : "" + secs;
 
         console.log(secsstring);
         const durationString = min + ':' + secsstring;
@@ -137,14 +140,14 @@ var moviedisplayer = (function() {
             return 'Fyrir ' + weeksSince + ' vikum síðan';
         }
     }
-    
+
     /*
-        Keyrslufall síðu. 
+        Keyrslufall síðu.
         Setur allt af stað.
     */
     function init() {
         videoscontainer = document.querySelector('main .myndbond');
-        console.log(videoscontainer);   
+        console.log(videoscontainer);
 
         fetchData();
     }

@@ -1,9 +1,23 @@
 @import "scss/config.scss";
 
-
 @import "scss/grid.scss";
 
-
-main {
-    width: 100%;
+/* setjum box-sizing: border-box; á allt */
+html { /* stylelint-disable-line */
+  box-sizing: border-box;
 }
+
+*, *:before, *:after { /* stylelint-disable-line */
+  box-sizing: inherit;
+
+  /* fjarlægjum margin og padding */
+  padding: 0;
+  margin: 0;
+}
+
+.myndbond {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@import "scss/video.scss";

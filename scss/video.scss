@@ -1,0 +1,14 @@
+.category {
+  &__videolist {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.video {
+  max-width: 40%;
+
+  &__img {
+    max-width: 100%;
+  }
+}
