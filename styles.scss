@@ -1,4 +1,9 @@
 @import "scss/config.scss";
 
 
-@@import "scss/grid.scss";
+@import "scss/grid.scss";
+
+
+main {
+    width: 100%;
+}
