@@ -1,3 +1,6 @@
+const API_URL = "./videos.json";
+
+
 document.addEventListener('DOMContentLoaded', function() {
     moviedisplayer.init();
 });
@@ -13,7 +16,7 @@ var moviedisplayer = (function() {
     function fetchData() {
         var r = new XMLHttpRequest();
         //Set upp beiðni
-        r.open('GET', './videos.json', true);
+        r.open('GET', API_URL, true);
 
         r.onload = function() {
             if(r.status == 200) {
@@ -102,6 +105,7 @@ var moviedisplayer = (function() {
         lengthlabel.textContent = getLength(videoInfo.duration);
         title.textContent = videoInfo.title;
         date.textContent = getDurationSinceCreated(videoInfo.created);
+        addVideoLink(imgcontainer, videoInfo.id);
 
         //Set í viðeigandi container
         imgcontainer.appendChild(img);
@@ -143,6 +147,17 @@ var moviedisplayer = (function() {
             return 'Fyrir ' + weeksSince + ' vikum síðan';
         }
     }
+
+    /*
+        Setur eventListener "click" á element, beinir vafra á síðu
+        með mynbandi sem valið er
+    */
+    function addVideoLink(element, videoid) {
+        element.addEventListener('click', function() {
+            window.location = '/watch.html?id=' + videoid;
+        });
+    }
+
 
     /*
         Keyrslufall síðu.

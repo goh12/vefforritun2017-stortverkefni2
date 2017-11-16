@@ -22,10 +22,11 @@
     "stylelint": "stylelint *.scss scss/*.scss --syntax scss",
     "lint": "npm-run-all --parallel eslint stylelint",
     "babel": "babel script.js --watch --out-file compiled-js.js --source-maps",
+    "babel2": "babel videoplayer.js --watch --out-file compiled-videoplayer.js --source-maps",
     "browser-sync": "browser-sync start --server --files index.html styles.css script-compiled.js",
     "cscss": "node-sass styles.scss styles.css",
     "cscsssubdir": "node-sass styles.scss styles.css",
-    "dev": "npm-run-all --parallel watch babel browser-sync"
+    "dev": "npm-run-all --parallel watch babel babel2 browser-sync"
   },
   "repository": {
     "type": "git",
