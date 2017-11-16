@@ -5,6 +5,7 @@
 /* setjum box-sizing: border-box; á allt */
 html { /* stylelint-disable-line */
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 *, *:before, *:after { /* stylelint-disable-line */
@@ -15,9 +16,24 @@ html { /* stylelint-disable-line */
   margin: 0;
 }
 
+html { /* stylelint-disable-line */
+  background-color: #333;
+  color: #fff;
+}
+
+hr {
+  margin: (2 * $gutter) (4 * $gutter);
+}
+
 .myndbond {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
+
+}
+
+.heading {
+  margin: $gutter;
+  font-size: 2em;
 }
 
 @import "scss/video.scss";
