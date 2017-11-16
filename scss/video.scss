@@ -1,14 +1,42 @@
+@import "config.scss";
+
 .category {
+  margin: 0 $gutter;
+  font-weight: bold;
+
   &__videolist {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
+
 }
 
 .video {
-  max-width: 40%;
+  max-width: 49%;
+  margin-top: $gutter;
 
   &__img {
     max-width: 100%;
   }
+
+  &__imgcontainer {
+    position: relative;
+  }
+
+  &__imglabel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0 5px 10px 0;
+    padding: 5px;
+    background: rgba(0, 0 , 0, 0.5);
+  }
+
+  &__title {
+    margin: (1/2 * $gutter) 0;
+    overflow: hidden;
+  }
+
+
 }
