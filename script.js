@@ -40,6 +40,7 @@ var moviedisplayer = (function() {
             const container = buildContainer(data.title);
             console.log(data.title);
             addVideosToCategory(container, data.videos, results.videos);
+
         });
     }
 
@@ -50,6 +51,7 @@ var moviedisplayer = (function() {
         const container = document.createElement('div');
         const heading = document.createElement('h2');
         const videolistitemcontainer = document.createElement('div');
+        const hr = document.createElement('hr');
 
         container.className = 'category';
         heading.className = 'category__heading';
@@ -59,6 +61,7 @@ var moviedisplayer = (function() {
         container.appendChild(heading);
         container.appendChild(videolistitemcontainer);
         videoscontainer.appendChild(container);
+        videoscontainer.appendChild(hr);
 
         return videolistitemcontainer;
     }
