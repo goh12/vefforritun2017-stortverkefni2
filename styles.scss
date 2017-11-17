@@ -17,11 +17,11 @@ html { /* stylelint-disable-line */
 }
 
 html { /* stylelint-disable-line */
-  background-color: #333;
   color: #fff;
+  background-color: #333;
 }
 
-hr {
+hr { /* stylelint-disable-line */
   margin: (2 * $gutter) (4 * $gutter);
 }
 
@@ -37,3 +37,4 @@ hr {
 }
 
 @import "scss/video.scss";
+@import "scss/videoplayer.scss";
