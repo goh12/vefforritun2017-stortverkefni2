@@ -16,6 +16,10 @@ var videoplayer = (function() {
     var unmutebutton;
     var fullscreenbutton;
 
+    /*
+        Nær í upplýsingar um myndbönd og nær í rétt mynbdand
+        og setur í spilun.
+    */
     function fetchData() {
         const url = new URL(window.location.href);
         const video_id = url.searchParams.get('id');
@@ -27,7 +31,7 @@ var videoplayer = (function() {
         r.onload = function() {
             if(r.status == 200) {
             var results = JSON.parse(r.response);
-            const videoInfo = results.videos[video_id];
+            const videoInfo = results.videos[video_id - 1];
             createVideoPlayer(videoInfo);
             } else if (r.status >= 400) {
 
@@ -41,7 +45,10 @@ var videoplayer = (function() {
         r.send();
     }
 
-
+    /**
+     * Býr til nýjan video player með stýrihnöppum
+     * 
+     */
     function createVideoPlayer(videoInfo) {
 
         const heading = document.createElement('h2');
@@ -53,11 +60,48 @@ var videoplayer = (function() {
 
         videocontainer.appendChild(heading);
         videocontainer.appendChild(videoplayer);
-        setControls();
+        createControls();
         videoplayer.play();
 
     }
 
+    /*
+        Býr til alla hnapp og bætir þeim í nýjan container
+    */
+    function createControls() {
+        //Bý til elements
+        const controlsContainer = document.createElement('div');
+        controlsContainer.className = 'videoplayer__controls';
+
+        backbutton =        createControlButton(controlsContainer, 'back');
+        playbutton =        createControlButton(controlsContainer, 'play');
+        pausebutton =       createControlButton(controlsContainer, 'pause');
+        mutebutton =        createControlButton(controlsContainer, 'mute');
+        unmutebutton =      createControlButton(controlsContainer, 'unmute');
+        fullscreenbutton =  createControlButton(controlsContainer, 'fullscreen');
+        nextbutton =        createControlButton(controlsContainer, 'next');
+
+        setControls();
+
+        videocontainer.appendChild(controlsContainer);
+    }
+
+    /*
+        Býr til Controls hnapp og bætir honum
+        í buttonContainer
+    */
+    function createControlButton(buttonContainer, buttonName) {
+        const button = document.createElement('img');
+        button.className = "videoplayer__controls__item videoplayer__controls__item--" + buttonName;
+        button.src = 'img/' + buttonName + '.svg';
+        buttonContainer.appendChild(button);
+
+        return button;
+    }
+
+    /*
+        Setur rétta stýringu á alla hnappa
+    */
     function setControls() {
         playbutton.style.display = 'none';
         unmutebutton.style.display = 'none';
@@ -118,18 +162,15 @@ var videoplayer = (function() {
         }  
     }
 
+    /************* Control föll enda  ***********************/
 
 
+    /*
+        Keyrslufall síðu
+    */
     function init() {
-        videocontainer = document.querySelector('main .videoplayer__container');
-        playbutton = document.querySelector('.videoplayer__controls__item--play');
-        pausebutton = document.querySelector('.videoplayer__controls__item--pause');
-        backbutton = document.querySelector('.videoplayer__controls__item--back');
-        nextbutton = document.querySelector('.videoplayer__controls__item--next');
-        mutebutton = document.querySelector('.videoplayer__controls__item--mute');
-        unmutebutton = document.querySelector('.videoplayer__controls__item--unmute');
-        fullscreenbutton = document.querySelector('.videoplayer__controls__item--fullscreen');
-
+        videocontainer = document.querySelector('main .videoplayer');
+        
         fetchData();
 
     }
