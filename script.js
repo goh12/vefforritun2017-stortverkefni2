@@ -56,15 +56,14 @@ const moviedisplayer = (() => {
       return `Fyrir ${monthsSince} mánuði síðan`;
     }
     if (daysSince < 365) {
-      return `Fyrir ${monthsSince} mánuðum síðan`;;
+      return `Fyrir ${monthsSince} mánuðum síðan`;
     }
 
     const yearsSince = Math.floor(daysSince / 365);
     if (yearsSince === 1) {
       return `Fyrir ${yearsSince} ári síðan`;
-    } else {
-      return `Fyrir ${yearsSince} árum síðan`;
     }
+    return `Fyrir ${yearsSince} árum síðan`;
   }
 
   /*
