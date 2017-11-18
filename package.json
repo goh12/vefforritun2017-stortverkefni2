@@ -25,7 +25,7 @@
     "babel2": "babel videoplayer.js --watch --out-file compiled-videoplayer.js --source-maps",
     "browser-sync": "browser-sync start --server --files index.html styles.css script-compiled.js",
     "cscss": "node-sass -r -w styles.scss styles.css",
-    "dev": "npm-run-all --parallel cscss babel browser-sync"
+    "dev": "npm-run-all --parallel cscss babel babel2 browser-sync"
   },
   "repository": {
     "type": "git",

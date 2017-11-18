@@ -10,6 +10,8 @@ const videoPlayer = (() => {
   let mutebutton;
   let unmutebutton;
   let fullscreenbutton;
+  let videowrapper;
+  let overlay;
 
 
   /* ***********************************************
@@ -20,12 +22,14 @@ const videoPlayer = (() => {
 
   function playVideo() {
     videoplayer.play();
+    overlay.style.display = 'none';
     playbutton.style.display = 'none';
     pausebutton.style.display = 'inline-block';
   }
 
   function pauseVideo() {
     videoplayer.pause();
+    overlay.style.display = 'flex';
     playbutton.style.display = 'inline-block';
     pausebutton.style.display = 'none';
   }
@@ -75,6 +79,20 @@ const videoPlayer = (() => {
   }
 
   /*
+    Gerir overlay
+  */
+  function createOverlay() {
+    const playbutton = document.createElement('img');
+    playbutton.classList.add('videoplayer__overlay__playbutton');
+    overlay = document.createElement('div');
+    overlay.classList.add('videoplayer__overlay');
+    playbutton.src = 'img/play.svg';
+    overlay.appendChild(playbutton);
+    overlay.style.display = 'none'
+    return overlay;
+  }
+
+  /*
     Setur rétta stýringu á alla hnappa
   */
   function setControls() {
@@ -121,12 +139,16 @@ const videoPlayer = (() => {
     const heading = document.createElement('h2');
     heading.className = 'videoplayer__heading';
     heading.textContent = videoInfo.title;
+    videowrapper = document.createElement('div');
+    videowrapper.className = 'videoplayer__wrapper'
     videoplayer = document.createElement('video');
     videoplayer.className = 'videoplayer__view';
     videoplayer.src = videoInfo.video;
-
+    createOverlay();
     videocontainer.appendChild(heading);
-    videocontainer.appendChild(videoplayer);
+    videowrapper.appendChild(videoplayer);
+    videowrapper.appendChild(overlay);
+    videocontainer.appendChild(videowrapper);
     createControls();
     videoplayer.play();
   }
