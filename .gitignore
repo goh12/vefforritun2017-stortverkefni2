@@ -1,4 +1,5 @@
 node_modules/
 styles.css
 compiled-js.js
+compiled-videoplayer.js
 *.js.map
