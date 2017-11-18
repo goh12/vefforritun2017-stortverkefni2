@@ -2,6 +2,8 @@
 ---
 ## Uppsetning og notkun
 * `git clone https://github.com/goh12/vefforritun2017-stortverkefni2`
+* `npm install til að setja upp node_modules möppu`
+* `npm run dev` til að keyra hönnunarumhverfi með browser-sync og node-sass.
 
 ---
 ## Uppbygging
