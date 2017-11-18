@@ -25,16 +25,9 @@ const moviedisplayer = (() => {
   function getDurationSinceCreated(date) {
     const timeSince = Date.now() - date;
 
-    const hoursSince = Math.floor((timeSince / (1000 * 60 * 60)) % 24)
-
-    if (hoursSince === 1) {
-      return `Fyrir ${hoursSince} klukkustund síðan`;
-    }
-    if (hoursSince < 24) {
-      return `Fyrir ${hoursSince} klukkustundum síðan`;
-    }
 
     const daysSince = Math.floor(timeSince / (1000 * 60 * 60 * 24));
+    console.log(daysSince);
     if (daysSince === 1) {
       return `Fyrir ${daysSince} degi síðan`;
     }
@@ -63,6 +56,15 @@ const moviedisplayer = (() => {
       return `Fyrir ${yearsSince} ári síðan`;
     } else {
       return `Fyrir ${yearsSince} árum síðan`;
+    }
+
+    const hoursSince = Math.floor((timeSince / (1000 * 60 * 60)) % 24)
+
+    if (hoursSince === 1) {
+      return `Fyrir ${hoursSince} klukkustund síðan`;
+    }
+    if (hoursSince < 24) {
+      return `Fyrir ${hoursSince} klukkustundum síðan`;
     }
   }
 
