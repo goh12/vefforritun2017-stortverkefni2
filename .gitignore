@@ -1,4 +1,4 @@
 node_modules/
 styles.css
-compiled-js.js
 *.js.map
+compiled-*.js
