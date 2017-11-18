@@ -5,6 +5,7 @@ module.exports = {
     browser: true,
   },
   rules: {
-    'class-methods-use-this': 0
+    'class-methods-use-this': 0,
+    'linebreak-style': 0
   }
 };
