@@ -15,7 +15,8 @@
 .video {
   max-width: 49%;
   margin-top: $gutter;
-  @media(max-width: 500px){
+
+  @media (max-width: 500px) {
     max-width: 100%;
   }
 
