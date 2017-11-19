@@ -47,11 +47,11 @@ const videoPlayer = (() => {
   }
 
   function backVideo() {
-    videoplayer.currentTime -= 5;
+    videoplayer.currentTime -= 3;
   }
 
   function forwardVideo() {
-    videoplayer.currentTime += 5;
+    videoplayer.currentTime += 3;
   }
 
   function fullscreenVideo() {
