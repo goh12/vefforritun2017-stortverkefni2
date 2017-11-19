@@ -149,12 +149,18 @@ const videoPlayer = (() => {
   function createVideoPlayer(videoInfo) {
     const heading = document.createElement('h2');
     heading.className = 'videoplayer__heading';
-    heading.textContent = videoInfo.title;
     videowrapper = document.createElement('div');
     videowrapper.className = 'videoplayer__wrapper';
     videoplayer = document.createElement('video');
     videoplayer.className = 'videoplayer__view';
-    videoplayer.src = videoInfo.video;
+
+    if (videoInfo === undefined) {
+      heading.textContent = 'Myndbandaleigan';
+      videowrapper.textContent = 'Videó er ekki til';
+    } else {
+      heading.textContent = videoInfo.title;
+      videoplayer.src = videoInfo.video;
+    }
     createOverlay();
     createGoBack();
     videocontainer.appendChild(heading);
