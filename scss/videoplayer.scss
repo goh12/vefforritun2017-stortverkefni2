@@ -38,6 +38,11 @@
     }
   }
 
+  &__previousPage {
+    margin-top: $gutter*2;
+    cursor: pointer;
+  }
+
 }
 
 .videoplayer__controls {

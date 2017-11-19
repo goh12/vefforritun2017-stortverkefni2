@@ -12,7 +12,7 @@ const videoPlayer = (() => {
   let fullscreenbutton;
   let videowrapper;
   let overlay;
-
+  let goBack;
 
   /* ***********************************************
    *
@@ -93,6 +93,17 @@ const videoPlayer = (() => {
   }
 
   /*
+    Býr til baka takkann
+  */
+  function createGoBack() {
+
+    goBack = document.createElement('div');
+    goBack.classList.add('videoplayer__previousPage');
+    goBack.appendChild(document.createTextNode('Til baka'));
+    goBack.onclick = () => {window.history.back()};
+  }
+
+  /*
     Setur rétta stýringu á alla hnappa
   */
   function setControls() {
@@ -140,16 +151,19 @@ const videoPlayer = (() => {
     heading.className = 'videoplayer__heading';
     heading.textContent = videoInfo.title;
     videowrapper = document.createElement('div');
-    videowrapper.className = 'videoplayer__wrapper'
+    videowrapper.className = 'videoplayer__wrapper';
     videoplayer = document.createElement('video');
     videoplayer.className = 'videoplayer__view';
     videoplayer.src = videoInfo.video;
     createOverlay();
+    createGoBack();
     videocontainer.appendChild(heading);
     videowrapper.appendChild(videoplayer);
     videowrapper.appendChild(overlay);
     videocontainer.appendChild(videowrapper);
     createControls();
+    videocontainer.appendChild(goBack);
+
     videoplayer.play();
   }
 
