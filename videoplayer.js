@@ -25,6 +25,7 @@ const videoPlayer = (() => {
     overlay.style.display = 'none';
     playbutton.style.display = 'none';
     pausebutton.style.display = 'inline-block';
+    videoplayer.onclick = () => {pauseVideo()};
   }
 
   function pauseVideo() {
@@ -32,6 +33,7 @@ const videoPlayer = (() => {
     overlay.style.display = 'flex';
     playbutton.style.display = 'inline-block';
     pausebutton.style.display = 'none';
+    overlay.onclick = () => {playVideo()};
   }
 
   function muteVideo() {
@@ -88,8 +90,7 @@ const videoPlayer = (() => {
     overlay.classList.add('videoplayer__overlay');
     playbutton.src = 'img/play.svg';
     overlay.appendChild(playbutton);
-    overlay.style.display = 'none'
-    return overlay;
+    overlay.style.display = 'none';
   }
 
   /*
@@ -161,6 +162,7 @@ const videoPlayer = (() => {
       heading.textContent = videoInfo.title;
       videoplayer.src = videoInfo.video;
     }
+
     createOverlay();
     createGoBack();
     videocontainer.appendChild(heading);
