@@ -172,7 +172,7 @@ const videoPlayer = (() => {
     createControls();
     videocontainer.appendChild(goBack);
 
-    videoplayer.play();
+    playVideo();
   }
 
   /*
