@@ -7,6 +7,11 @@
 
 ---
 ## Uppbygging
+* HTML, styles.css og Javascript skrár eru í rót
+* styles.css er þýdd úr styles.scss sem sækir allar skrár úr scss möppu
+* Myndir fyrir stýrihnappa myndbands eru geymdir í img möppu
+* Myndbönd eru geymd í videos möppu
+* videos.json geymir staðlaðar upplýsingar um myndböndin og hvernig flokkum er háttað(categories)
 
 ---
 ## Höfundar
