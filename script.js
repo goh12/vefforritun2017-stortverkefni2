@@ -132,6 +132,7 @@ const moviedisplayer = (() => {
     const heading = document.createElement('h2');
     const videolistitemcontainer = document.createElement('div');
     const hr = document.createElement('hr');
+    hr.classList.add('hr');
 
     container.className = 'category';
     heading.className = 'category__heading';
@@ -158,19 +159,50 @@ const moviedisplayer = (() => {
   }
 
   /*
+    Fall til að sýna error skilaboð
+  */
+  function showError(error) {
+    const el = document.createElement('p');
+    el.appendChild(document.createTextNode(error));
+    el.classList.add('error');
+    videoscontainer.appendChild(el);
+  }
+
+  function empty() {
+    videoscontainer.removeChild(videoscontainer.children[1]);
+  }
+
+  function showLoading() {
+    const el = document.createElement('p');
+    el.appendChild(document.createTextNode('Verið að hlaða gögnum'));
+    el.classList.add('loading');
+    videoscontainer.appendChild(el);
+  }
+
+  /*
     Framkvæmir AJAX fyrirspurn og kallar á fall sem
     sýnir niðurstöður
   */
   function fetchData() {
     const r = new XMLHttpRequest();
+    showLoading();
     /* Set upp beiðni */
     r.open('GET', API_URL, true);
 
+
     r.onload = () => {
-      if (r.status === 200) {
+      empty();
+      if (r.status >= 200 && r.status < 400) {
         const results = JSON.parse(r.response);
         displayData(results);
+      } else {
+        showError(`Villa kom upp: ${r.error}`);
       }
+    };
+
+    r.onerror = () => {
+      empty();
+      showError('Gat ekki hlaðið gögnum');
     };
 
     r.send();

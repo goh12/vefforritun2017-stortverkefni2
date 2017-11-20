@@ -21,8 +21,9 @@ html { /* stylelint-disable-line */
   background-color: #333;
 }
 
-hr { /* stylelint-disable-line */
+.hr {
   margin: (2 * $gutter) (4 * $gutter);
+  border-color: #eee;
 }
 
 .myndbond {

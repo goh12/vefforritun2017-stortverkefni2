@@ -12,6 +12,16 @@
 
 }
 
+.error {
+  margin-top: $gutter * 4;
+  text-align: center;
+}
+
+.loading {
+  margin-top: $gutter * 4;
+  text-align: center;
+}
+
 .video {
   max-width: 49%;
   margin-top: $gutter;
