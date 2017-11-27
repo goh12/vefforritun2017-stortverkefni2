@@ -72,7 +72,7 @@ const moviedisplayer = (() => {
   */
   function addVideoLink(element, videoid) {
     element.addEventListener('click', () => {
-      window.location = `/watch.html?id=${videoid}`;
+      window.location = `./watch.html?id=${videoid}`;
     });
   }
 
